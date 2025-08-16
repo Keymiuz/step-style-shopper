@@ -2,6 +2,7 @@ import { ShoppingCart, Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { useCart } from "@/context/CartContext";
 
 interface Product {
   id: number;
@@ -19,6 +20,7 @@ interface ProductCardProps {
 }
 
 const ProductCard = ({ product }: ProductCardProps) => {
+  const { addItem } = useCart();
   const discountPercentage = product.originalPrice 
     ? Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100)
     : 0;
@@ -53,7 +55,20 @@ const ProductCard = ({ product }: ProductCardProps) => {
         
         {/* Quick Add to Cart */}
         <div className="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          <Button variant="premium" size="sm" className="w-full">
+          <Button
+            variant="premium"
+            size="sm"
+            className="w-full"
+            onClick={(e) => {
+              e.preventDefault();
+              addItem({
+                id: product.id,
+                name: product.name,
+                price: product.price,
+                image: product.image,
+              }, 1);
+            }}
+          >
             <ShoppingCart className="h-4 w-4 mr-2" />
             Adicionar ao Carrinho
           </Button>

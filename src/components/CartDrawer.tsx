@@ -2,55 +2,10 @@ import { ShoppingCart, X, Plus, Minus, Trash2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { Separator } from "@/components/ui/separator";
-import { useState } from "react";
-
-interface CartItem {
-  id: number;
-  name: string;
-  price: number;
-  image: string;
-  size: string;
-  quantity: number;
-}
-
-const mockCartItems: CartItem[] = [
-  {
-    id: 1,
-    name: "Oxford Clássico Marrom",
-    price: 299.90,
-    image: "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=200&q=80",
-    size: "42",
-    quantity: 1,
-  },
-  {
-    id: 2,
-    name: "Sneaker Premium Branco",
-    price: 189.90,
-    image: "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=200&q=80",
-    size: "40",
-    quantity: 2,
-  },
-];
+import { useCart } from "@/context/CartContext";
 
 const CartDrawer = () => {
-  const [cartItems, setCartItems] = useState<CartItem[]>(mockCartItems);
-
-  const updateQuantity = (id: number, change: number) => {
-    setCartItems(items => 
-      items.map(item => 
-        item.id === id 
-          ? { ...item, quantity: Math.max(0, item.quantity + change) }
-          : item
-      ).filter(item => item.quantity > 0)
-    );
-  };
-
-  const removeItem = (id: number) => {
-    setCartItems(items => items.filter(item => item.id !== id));
-  };
-
-  const total = cartItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-  const itemCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+  const { items: cartItems, count: itemCount, total, updateQuantity, removeItem } = useCart();
 
   return (
     <Sheet>
@@ -94,7 +49,9 @@ const CartDrawer = () => {
                     
                     <div className="flex-1">
                       <h4 className="font-medium text-sm">{item.name}</h4>
-                      <p className="text-sm text-muted-foreground">Tamanho: {item.size}</p>
+                      {item.size && (
+                        <p className="text-sm text-muted-foreground">Tamanho: {item.size}</p>
+                      )}
                       <p className="font-semibold text-primary">R$ {item.price.toFixed(2)}</p>
                     </div>
                     
