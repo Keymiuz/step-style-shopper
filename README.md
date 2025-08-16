@@ -26,15 +26,11 @@ Aplicação web de e-commerce focada em calçados premium, construída com React
 
 ## Visão Geral
 
-[Voltar à Visão Geral](#visão-geral)
-
 O Step Style Shopper é um front-end moderno para loja de calçados. Ele prioriza performance, acessibilidade e componentes reutilizáveis. Inclui configurações prontas para desenvolvimento com hot reload, tipagem forte com TypeScript, estilo com Tailwind e um design system baseado em shadcn-ui/Radix.
 
 ---
 
 ## Tecnologias e Bibliotecas
-
-[Voltar à Visão Geral](#visão-geral)
 
 - Vite (Bundler/Dev Server)
 - React 18 + TypeScript
@@ -57,8 +53,6 @@ Arquitetura de build e ferramentas: Vite, PostCSS, Autoprefixer, Tailwind. Tipos
 
 ## Estrutura do Projeto
 
-[Voltar à Visão Geral](#visão-geral)
-
 Diretórios principais:
 
 - `src/`
@@ -76,16 +70,12 @@ Diretórios principais:
 
 ## Pré-requisitos
 
-[Voltar à Visão Geral](#visão-geral)
-
 - Node.js 18+ (recomendado) e npm 9+ ou pnpm/yarn
 - Git para clonar o repositório
 
 ---
 
 ## Como Executar (Desenvolvimento)
-
-[Voltar à Visão Geral](#visão-geral)
 
 ```bash
 git clone https://github.com/Keymiuz/step-style-shopper.git
@@ -100,8 +90,6 @@ Acesse o endereço informado pelo Vite
 
 ## Build de Produção
 
-[Voltar à Visão Geral](#visão-geral)
-
 ```bash
 npm run build
 npm run preview # opcional, para testar o build localmente
@@ -113,8 +101,6 @@ O build final ficará disponível em `dist/`.
 
 ## Scripts Disponíveis
 
-[Voltar à Visão Geral](#visão-geral)
-
 - `npm run dev`: inicia o servidor de desenvolvimento Vite
 - `npm run build`: gera o build de produção
 - `npm run build:dev`: build em modo development (mais rápido para testes)
@@ -124,8 +110,6 @@ O build final ficará disponível em `dist/`.
 ---
 
 ## Padronização e Qualidade de Código
-
-[Voltar à Visão Geral](#visão-geral)
 
 - ESLint e TypeScript ESLint configurados em `eslint.config.js`
 - Tipagem estática com TypeScript
@@ -141,13 +125,9 @@ O build final ficará disponível em `dist/`.
 - Animações com `tailwindcss-animate`
 - Suporte a tema claro/escuro com `next-themes`
 
-[Voltar à Visão Geral](#visão-geral)
-
 ---
 
 ## Rotas e Navegação
-
-[Voltar à Visão Geral](#visão-geral)
 
 - Roteamento com `react-router-dom`
 - Definições de rotas no `App.tsx` e em `pages/`
@@ -155,8 +135,6 @@ O build final ficará disponível em `dist/`.
 ---
 
 ## Estado, Formulários e Validação
-
-[Voltar à Visão Geral](#visão-geral)
 
 - Estados assíncronos com `@tanstack/react-query`
 - Formulários com `react-hook-form`
@@ -166,8 +144,6 @@ O build final ficará disponível em `dist/`.
 ---
 
 ## Gráficos e Visualizações
-
-[Voltar à Visão Geral](#visão-geral)
 
 - Visualizações com `recharts`
 
@@ -180,6 +156,4 @@ O build final ficará disponível em `dist/`.
 - Configure cabeçalhos/roteamento no provedor de hospedagem caso use rotas do `react-router-dom` (fallback para `index.html`)
 
 ---
-
-[Voltar à Visão Geral](#visão-geral)
 
